@@ -27,42 +27,9 @@
 		<button class="button" id="option1" onClick="changeExercise()"> >> </button>
   		
   		</div>	
-  		<Image class = 'img'src="assets/Untitled.png" alt="" id="picture" />
+  		<Image class = 'img'src="assets/traceheart.png" alt="" id="picture" />
   		<canvas id="canvas" width="900" height="600"></canvas> 
   		
   	</div>
   </body>
-  <script type="text/javascript">
-     var index = 0;
-     
-     function changeExercise()
-    {
-        var exercises = ["assets/Untitled.png", "assets/traceheart.png" ];
-        index++;
-        if(index == exercises.length){
-        	index = 0;
-        }
-        document.getElementById("picture").src = exercises[index];
-    }
-    
-    
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    
-
-    Leap.loop({frameEventName: "animationFrame"}, function(frame) {
-
-          frame.pointables.forEach(function(pointable) {
-          var position = pointable.stabilizedTipPosition;
-          var normalized = frame.interactionBox.normalizePoint(position);
-
-          var x = ctx.canvas.width * normalized[0];
-          var y = ctx.canvas.height * (1 - normalized[1]);
-          ctx.beginPath();
-          ctx.rect(x, y, 20, 20);
-          ctx.fillStyle = '#ff66ff';
-          ctx.fill();
-        });
-    });
-  </script>
 </html>
