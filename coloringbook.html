@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="http://js.leapmotion.com/leap-0.4.2.js"></script>
+    <style type="text/css">
+    	body {
+    		text-align: center;
+    	}
+    	canvas {
+    		position: relative;
+    		z-index: 20;
+    	}
+    	#container {
+    		display: inline-block;
+    		width: 1280px;
+    		height: 800px;
+    		margin: 0 auto;
+    		position: relative;
+    	}
+    </style>
+  </head>
+  <body>
+  	<div id="container">
+  		<canvas id="canvas" width="1280" height="800"></canvas> 
+  	</div>
+  </body>
+  <script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    
+    var outlineImage = new Image();
+    outlineImage.src = "assets/pig.png";
+
+    ctx.drawImage(outlineImage,10,10);
+
+    Leap.loop({frameEventName: "animationFrame"}, function(frame) {
+
+          frame.pointables.forEach(function(pointable) {
+          var position = pointable.stabilizedTipPosition;
+          var normalized = frame.interactionBox.normalizePoint(position);
+
+          var x = ctx.canvas.width * normalized[0];
+          var y = ctx.canvas.height * (1 - normalized[1]);
+          ctx.beginPath();
+          ctx.rect(x, y, 20, 20);
+          ctx.fillStyle = '#ff66ff';
+          ctx.fill();
+        });
+    });
+  </script>
+</html>
