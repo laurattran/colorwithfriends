@@ -1,13 +1,13 @@
 <html>
   <head>
+	<link rel="stylesheet" href="canvas.css">
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://js.leapmotion.com/leap-0.4.2.js"></script>
-    <link rel="stylesheet" href="canvas.css">
+
   </head>
   <body>
    
   	<div id="container">
-  	
   		<div class="crayons">
   			<img src="assets/blue.png" height="200" width="auto" onClick=""/>
   			<img src="assets/red.png" height="200" width="auto" onClick=""/>
@@ -21,15 +21,16 @@
   			<img src="assets/save.png" width="75" height="auto" onClick=""/>
   			<img src="assets/email.png" width="75" height="auto" onClick=""/>
   			<img src="assets/friends.png" width="75" height="auto" onClick=""/>
-  		</div>
+  		</div>	
   		
-  	
-  		<Image class = 'img'src="assets/pig.png" alt="" />
-		<canvas id="canvas" width="900" height="600"></canvas>   	
-
+  		<canvas id="canvas" width="900" height="600"></canvas> 
+  		
+  		
   	</div>
   </body>
   <script type="text/javascript">
+    
+    
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     
@@ -49,5 +50,4 @@
         });
     });
   </script>
-  
 </html>

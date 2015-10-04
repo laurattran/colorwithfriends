@@ -1,0 +1,6 @@
+body {text-align: center; background-color: #444444}
+canvas {margin: 0 20px 0 40px; z-index: 20; background-color: #ffffff;}
+#container {display: inline-block; width: 1280px; height: 800px; margin: 0 auto; position: relative;}
+.img {position: absolute; z-index: 1;}
+.crayons{width: 150px; height: 100%; float:left; display: inline-block;}
+.share-button{margin-top: 500px; margin-left: -300px; display: inline-block; position: relative; outline: none;}
