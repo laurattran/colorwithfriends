@@ -2,52 +2,32 @@
   <head>
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://js.leapmotion.com/leap-0.4.2.js"></script>
+    <script type="text/javascript" src="color-leap.js"></script>
+    <script type="text/javascript" src="canvas2image.js"></script>
     <link rel="stylesheet" href="canvas.css">
   </head>
   <body>
    
   	<div id="container">
   	
+  		<div id="container">
   		<div class="crayons">
-  			<img src="assets/blue.png" height="200" width="auto" onClick=""/>
-  			<img src="assets/red.png" height="200" width="auto" onClick=""/>
+  			<img src="assets/blue.png" id="blue" height="200" width="auto" />
+  			<img src="assets/red.png" id="red" height="200" width="auto" />
   		</div>
   		<div class="crayons">
-  			<img src="assets/yellow.png" height="200" width="auto" onClick=""/>
-  			<img src="assets/green.png" height="200" width="auto" onClick=""/>
+  			<img src="assets/yellow.png" id="yellow" height="200" width="auto"/>
+  			<img src="assets/green.png" id="green" height="200" width="auto" />
   		</div>
   		
   		<div class="share-button">
-  			<img src="assets/save.png" width="75" height="auto" onClick=""/>
-  			<img src="assets/email.png" width="75" height="auto" onClick=""/>
-  			<img src="assets/friends.png" width="75" height="auto" onClick=""/>
+  			<img src="assets/save.png"  id= "save" width="75" height="auto"/>
+  			<img src="assets/email.png" id="email" width="75" height="auto" />
+  			<img src="assets/friends.png" id="share" width="75" height="auto" />
   		</div>
-  		
-  	
   		<Image class = 'img'src="assets/pig.png" alt="" />
 		<canvas id="canvas" width="900" height="600"></canvas>   	
 
   	</div>
-  </body>
-  <script type="text/javascript">
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    
-
-    Leap.loop({frameEventName: "animationFrame"}, function(frame) {
-
-          frame.pointables.forEach(function(pointable) {
-          var position = pointable.stabilizedTipPosition;
-          var normalized = frame.interactionBox.normalizePoint(position);
-
-          var x = ctx.canvas.width * normalized[0];
-          var y = ctx.canvas.height * (1 - normalized[1]);
-          ctx.beginPath();
-          ctx.rect(x, y, 20, 20);
-          ctx.fillStyle = '#ff66ff';
-          ctx.fill();
-        });
-    });
-  </script>
-  
+  </body> 
 </html>
