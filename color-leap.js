@@ -14,6 +14,9 @@ var canvas = document.getElementById("canvas");
     $("#green").click(function() {
       		ctx.fillStyle = '#008000';
     });
+    $("#erase").click(function() {
+      		ctx.fillStyle = '#ffffff';
+    });
     $("#save").click(function() {
 			var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
 			window.location.href=image; 
