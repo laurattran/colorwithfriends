@@ -16,10 +16,15 @@
     		margin: 0 auto;
     		position: relative;
     	}
+    	.img {
+    		position: absolute;
+    		z-index: 1;
+    	}
     </style>
   </head>
   <body>
   	<div id="container">
+  		<Image class = 'img'src="assets/pig.png" alt="" />
   		<canvas id="canvas" width="1280" height="800"></canvas> 
   	</div>
   </body>
@@ -27,10 +32,6 @@
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     
-    var outlineImage = new Image();
-    outlineImage.src = "assets/pig.png";
-
-    ctx.drawImage(outlineImage,10,10);
 
     Leap.loop({frameEventName: "animationFrame"}, function(frame) {
 
